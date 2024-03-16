@@ -1,0 +1,13 @@
+2024-02-27 09:27:59,401 DEBUG    root            Loaded Command Group: ['gcloud', 'config']
+2024-02-27 09:27:59,458 DEBUG    root            Loaded Command Group: ['gcloud', 'config', 'config_helper']
+2024-02-27 09:27:59,461 DEBUG    root            Running [gcloud.config.config-helper] with arguments: [--format: "value(configuration.properties.core.project)"]
+2024-02-27 09:27:59,762 DEBUG    google.auth.transport.requests Making request: GET http://192.168.10.5/computeMetadata/v1/instance/service-accounts/564706877122-compute@developer.gserviceaccount.com/?recursive=true
+2024-02-27 09:27:59,772 DEBUG    urllib3.connectionpool Starting new HTTP connection (1): 192.168.10.5:80
+2024-02-27 09:27:59,773 DEBUG    urllib3.connectionpool http://192.168.10.5:80 "GET /computeMetadata/v1/instance/service-accounts/564706877122-compute@developer.gserviceaccount.com/?recursive=true HTTP/1.1" 200 145
+2024-02-27 09:27:59,774 DEBUG    google.auth.transport.requests Making request: GET http://192.168.10.5/computeMetadata/v1/instance/service-accounts/564706877122-compute@developer.gserviceaccount.com/token
+2024-02-27 09:27:59,776 DEBUG    urllib3.connectionpool http://192.168.10.5:80 "GET /computeMetadata/v1/instance/service-accounts/564706877122-compute@developer.gserviceaccount.com/token HTTP/1.1" 200 1084
+2024-02-27 09:27:59,801 DEBUG    root            Chosen display Format:default value(configuration.properties.core.project)
+2024-02-27 09:27:59,802 INFO     root            Display format: "default value(configuration.properties.core.project)"
+2024-02-27 09:27:59,803 INFO     ___FILE_ONLY___ brave-watch-414204
+
+2024-02-27 09:27:59,803 DEBUG    root            SDK update checks are disabled.

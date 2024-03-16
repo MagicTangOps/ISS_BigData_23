@@ -1,0 +1,8 @@
+2024-02-20 08:33:31,876 DEBUG    root            Loaded Command Group: ['gcloud', 'config']
+2024-02-20 08:33:31,901 DEBUG    root            Loaded Command Group: ['gcloud', 'config', 'config_helper']
+2024-02-20 08:33:31,905 DEBUG    root            Running [gcloud.config.config-helper] with arguments: [--format: "value(configuration.properties.core.project)"]
+2024-02-20 08:33:31,978 DEBUG    root            Chosen display Format:default value(configuration.properties.core.project)
+2024-02-20 08:33:31,979 INFO     root            Display format: "default value(configuration.properties.core.project)"
+2024-02-20 08:33:31,980 INFO     ___FILE_ONLY___ brave-watch-414204
+
+2024-02-20 08:33:31,980 DEBUG    root            SDK update checks are disabled.

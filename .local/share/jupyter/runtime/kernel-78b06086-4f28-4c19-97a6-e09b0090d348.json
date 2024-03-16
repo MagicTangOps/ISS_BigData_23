@@ -1,0 +1,13 @@
+{
+  "shell_port": 51739,
+  "iopub_port": 53673,
+  "stdin_port": 43959,
+  "control_port": 55369,
+  "hb_port": 38297,
+  "ip": "0.0.0.0",
+  "key": "0977832b-4edd689d34bcf33d1711a5e0",
+  "transport": "tcp",
+  "signature_scheme": "hmac-sha256",
+  "kernel_name": "base",
+  "jupyter_session": "/home/jupyter/Pipeline.ipynb"
+}

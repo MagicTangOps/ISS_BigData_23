@@ -1,0 +1,13 @@
+2024-02-20 08:26:59,509 DEBUG    root            Loaded Command Group: ['gcloud', 'config']
+2024-02-20 08:26:59,512 DEBUG    root            Loaded Command Group: ['gcloud', 'config', 'config_helper']
+2024-02-20 08:26:59,515 DEBUG    root            Running [gcloud.config.config-helper] with arguments: [--format: "value(credential.access_token)"]
+2024-02-20 08:26:59,558 DEBUG    google.auth.transport.requests Making request: GET http://192.168.10.5/computeMetadata/v1/instance/service-accounts/564706877122-compute@developer.gserviceaccount.com/?recursive=true
+2024-02-20 08:26:59,561 DEBUG    urllib3.connectionpool Starting new HTTP connection (1): 192.168.10.5:80
+2024-02-20 08:26:59,562 DEBUG    urllib3.connectionpool http://192.168.10.5:80 "GET /computeMetadata/v1/instance/service-accounts/564706877122-compute@developer.gserviceaccount.com/?recursive=true HTTP/1.1" 200 145
+2024-02-20 08:26:59,563 DEBUG    google.auth.transport.requests Making request: GET http://192.168.10.5/computeMetadata/v1/instance/service-accounts/564706877122-compute@developer.gserviceaccount.com/token
+2024-02-20 08:26:59,565 DEBUG    urllib3.connectionpool http://192.168.10.5:80 "GET /computeMetadata/v1/instance/service-accounts/564706877122-compute@developer.gserviceaccount.com/token HTTP/1.1" 200 1084
+2024-02-20 08:26:59,649 DEBUG    root            Chosen display Format:default value(credential.access_token)
+2024-02-20 08:26:59,650 INFO     root            Display format: "default value(credential.access_token)"
+2024-02-20 08:26:59,651 INFO     ___FILE_ONLY___ ya29.c.c0AY_VpZgvQgwVKVeY41gjC7SZRNReaRxRJEctnjbn0tXQj0NDoJdvOlykoH40JeKdiBKMz63zR6ofgtKmKfWPKbY0OrNmGjxjUoDee6b30No0etFHLICi94J3BQQCImQ7bLhM-1GigCwdAxO0MNCxVCS_3YzuZXj_a_MXo9L6cSrf2TIlkYZG54qhCljyrcfF_r3lhBLK_ISH-hRt6ymPku9riAh4ZR4hP7fZK_yiYnl_Y-syL8Cyw3NtrPBcYnfSCnp31UfvOdIYOpAyd4PUuLwXmBrWI_vMHPKie6vus0T2jIGDYXpCqA_IA2qCbpof3kmlaaS_4GYvHXk2s5jIXwZCXswG7QXiedJOFmU-hX6XS1b2sZDvJD-BvHBjicx3W7_I__qK0ECNHXc8RQWZj0YG8CMnaQe6hIAu2cd6-z5Dk7y3fdgN444Pzv4B0wMUIY8mQzeS_2zIUfS3_VQwBgobVqWfqyRMU0nQnw5FVBiF3rfcvRg51aMXkkpIzebxx7Ij7fW-18dMQ50cwdR3lrdxS3ajkWZQ8UoxBnqiBBptnpjByQ39BhdvskZ_l6qbskm-_lqYkU9FdmmbbM4R0bvzdMvI10ZqmvFW2zxXb196s05lpIO7Iu4RchfO43V9s4pyj8U6mY1nISk1g-FiZqorhtFS8ym_UXO7OOJlRBVdqfg3WbtcqtnVzgqcBxg05zkXe-7IgaByMwuj993b95tSMo8IxRQ8QvJwmlR6oblVzux1psB-Vko054Igxilkc_QmotxxiolsQ-mnOu0hfpsugXvpMJjg-d294hXsezeUl7vbbhJ22cMu0pdFkezrYQsVer7avxp6odabhbjfs0yu3o6v2tZdUR4mn074X7MpFSXrzOwvp4B3XtocyJf5Xa5jY73-89brQ3yFJSnMrcXawFI4WrO4Rahu8FVsfme4j5WmR3xJs6veh6_1lXp4c42_09ano0MpcXU4QS87rvZeYifWztJItw8oUjgMWbXipywwRzJcYMy
+
+2024-02-20 08:26:59,651 DEBUG    root            SDK update checks are disabled.

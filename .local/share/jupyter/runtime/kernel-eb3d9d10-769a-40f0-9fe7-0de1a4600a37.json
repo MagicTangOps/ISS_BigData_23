@@ -1,0 +1,13 @@
+{
+  "shell_port": 39227,
+  "iopub_port": 48747,
+  "stdin_port": 35869,
+  "control_port": 52151,
+  "hb_port": 60591,
+  "ip": "0.0.0.0",
+  "key": "270ebb7f-ca8d107aabb798c73dd44a6d",
+  "transport": "tcp",
+  "signature_scheme": "hmac-sha256",
+  "kernel_name": "base",
+  "jupyter_session": "/home/jupyter/Bigquery.ipynb"
+}

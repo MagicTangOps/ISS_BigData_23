@@ -1,0 +1,13 @@
+{
+  "shell_port": 59361,
+  "iopub_port": 35513,
+  "stdin_port": 35635,
+  "control_port": 43635,
+  "hb_port": 57233,
+  "ip": "0.0.0.0",
+  "key": "440075c2-985f4b83bd4606d882f7e3ca",
+  "transport": "tcp",
+  "signature_scheme": "hmac-sha256",
+  "kernel_name": "xgboost-1-7",
+  "jupyter_session": "/home/jupyter/tutorials/python-docs-samples/bigquery/Getting started with BigQuery ML.ipynb"
+}

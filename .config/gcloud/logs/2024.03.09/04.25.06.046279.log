@@ -1,0 +1,10 @@
+2024-03-09 04:25:06,048 DEBUG    root            Loaded Command Group: ['gcloud', 'config']
+2024-03-09 04:25:06,596 DEBUG    root            Loaded Command Group: ['gcloud', 'config', 'set']
+2024-03-09 04:25:06,599 DEBUG    root            Running [gcloud.config.set] with arguments: [SECTION/PROPERTY: "project", VALUE: "brave-watch-414204"]
+2024-03-09 04:25:06,630 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudresourcemanager.googleapis.com:443
+2024-03-09 04:25:07,719 DEBUG    urllib3.connectionpool https://cloudresourcemanager.googleapis.com:443 "GET /v1/projects/brave-watch-414204?alt=json HTTP/1.1" 200 None
+2024-03-09 04:25:07,722 INFO     ___FILE_ONLY___ Updated property [core/project].
+
+2024-03-09 04:25:07,723 DEBUG    root            Chosen display Format:default
+2024-03-09 04:25:07,724 INFO     root            Display format: "default"
+2024-03-09 04:25:07,725 DEBUG    root            SDK update checks are disabled.

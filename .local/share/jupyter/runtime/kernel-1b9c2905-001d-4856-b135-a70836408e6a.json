@@ -1,0 +1,13 @@
+{
+  "shell_port": 43583,
+  "iopub_port": 45915,
+  "stdin_port": 34517,
+  "control_port": 56287,
+  "hb_port": 50375,
+  "ip": "0.0.0.0",
+  "key": "92f72de5-5bcbc819dfb0efc8cd16dfc2",
+  "transport": "tcp",
+  "signature_scheme": "hmac-sha256",
+  "kernel_name": "base",
+  "jupyter_session": "/home/jupyter/BucketSetup.ipynb"
+}

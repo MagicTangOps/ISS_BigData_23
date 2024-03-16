@@ -1,0 +1,9 @@
+[compute]
+region = asia-southeast1
+
+[dataproc]
+region = asia-southeast1
+
+[core]
+project = brave-watch-414204
+

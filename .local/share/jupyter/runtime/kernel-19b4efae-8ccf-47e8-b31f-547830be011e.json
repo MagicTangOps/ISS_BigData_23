@@ -1,0 +1,13 @@
+{
+  "shell_port": 60269,
+  "iopub_port": 51377,
+  "stdin_port": 57719,
+  "control_port": 59087,
+  "hb_port": 59681,
+  "ip": "0.0.0.0",
+  "key": "1ca9654c-584bba53e1dd636b5601756d",
+  "transport": "tcp",
+  "signature_scheme": "hmac-sha256",
+  "kernel_name": "base",
+  "jupyter_session": "/home/jupyter/Rambo_Sandbox_Exploration.ipynb"
+}

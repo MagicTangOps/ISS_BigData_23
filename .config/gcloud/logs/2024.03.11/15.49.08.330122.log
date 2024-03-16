@@ -1,0 +1,34 @@
+2024-03-11 15:49:08,332 DEBUG    root            Loaded Command Group: ['gcloud', 'config']
+2024-03-11 15:49:08,334 DEBUG    root            Loaded Command Group: ['gcloud', 'config', 'config_helper']
+2024-03-11 15:49:08,337 DEBUG    root            Running [gcloud.config.config-helper] with arguments: [--format: "json"]
+2024-03-11 15:49:08,352 DEBUG    root            Chosen display Format:default json
+2024-03-11 15:49:08,352 INFO     root            Display format: "default json"
+2024-03-11 15:49:08,353 INFO     ___FILE_ONLY___ {
+  "configuration": {
+    "active_configuration": "default",
+    "properties": {
+      "compute": {
+        "region": "asia-southeast1"
+      },
+      "core": {
+        "account": "564706877122-compute@developer.gserviceaccount.com",
+        "disable_usage_reporting": "True",
+        "project": "brave-watch-414204"
+      },
+      "dataproc": {
+        "region": "asia-southeast1"
+      }
+    }
+  },
+  "credential": {
+    "access_token": "ya29.c.c0AY_VpZjyYoJSI7AnxRWpnfSvOfaeSPzhDZJH4zpcs8rBEICejeVdPakGbHkYr4wZo2UAVo2cV7hX8qAwvvG5ykh-0EaTpMbNh-xvQdazBbSIyf_dnQATVuaiqlAm7bYxrk4jEYHm1RkmblKqY1PptMJil9SJo717NKnv9xzwUjp9mGGlRLBs1v4nDCcULLZEf2N9dJPO3AZleGTe9GxcvcxOhrcUFWHt9GuC9A2HbrZuMuauPFbJha3eXnXicaXvGnWjscfkbkMXBPjxcqpWLJxff3cAiW1ZN2hdv7h9cplPr5cE_IUgDK92oDi2YxUyGc6uLvAFJ9QIKjDoE9GSk6CLd4VjQzQB7JrzoRzBO7e8zvf8Sw5y8Y65V2rZ8HVqdNrI4W3gxnkIAQNwQQblo2pKbwgWCLwCU_X5tO_TMd81hGE-EEjyWDZI2loE452PZB_IvXw0Jr3ZBB9kqa9Mnx9juljjd6m194iqBv95OlWmgBBtfatRsveakflnI-xn2XsQJXw445tZ6kZ9BQXw8YxsRbzb2mjQBvO0kpt7yWraZj4o5JQfx81e6ow_vOpOXBIayhuy6l-4fsWtsYtZvlxrSIZ-n-odZykv-28ihVe4qq7xv5bUyYxe1mV_ziolIVJI4bl2SSqj72ln30s9enFecrdY2kO8ar684t5bcyI58UigolurXtxQQaFpYUlI8suSz9ow_ac4uS3U6qcS_7Wa6Jy57wqajZF8nXy6de1sIpFxj1BOjcZ_5ygVmplB792vg8UXmj2Wkq79vcfeX9qOyIpgosXsZwvSxBc7MfjdkZjohaa0z0upq0d0SMlMJe9iQtSZQnmrnBbxt4jr2dvpwzbrI8RqzeZpRsBhb0g-9fQ5bn434RfW3yB3QtMM3MaU31fheWMw55k9VibwOQWfh1coQp_tuO-b5wkgqVJjnOVf6scydwUaV58pjR0ennquyoBoQJIwrUZBMzyXYtSWseFQgmoFp_aZFaVI-yMxJ8MJQ0zge4M",
+    "id_token": null,
+    "token_expiry": "2024-03-11T15:55:06Z"
+  },
+  "sentinels": {
+    "config_sentinel": "/home/jupyter/.config/gcloud/config_sentinel"
+  }
+}
+2024-03-11 15:49:08,353 INFO     ___FILE_ONLY___ 
+
+2024-03-11 15:49:08,354 DEBUG    root            SDK update checks are disabled.

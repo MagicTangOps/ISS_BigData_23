@@ -1,0 +1,8 @@
+2024-02-20 10:15:15,796 DEBUG    root            Loaded Command Group: ['gcloud', 'config']
+2024-02-20 10:15:15,807 DEBUG    root            Loaded Command Group: ['gcloud', 'config', 'get_value']
+2024-02-20 10:15:15,811 DEBUG    root            Running [gcloud.config.get-value] with arguments: [SECTION/PROPERTY: "project"]
+2024-02-20 10:15:15,817 DEBUG    root            Chosen display Format:value(.)
+2024-02-20 10:15:15,819 INFO     root            Display format: "value(.)"
+2024-02-20 10:15:15,819 INFO     ___FILE_ONLY___ brave-watch-414204
+
+2024-02-20 10:15:15,820 DEBUG    root            SDK update checks are disabled.

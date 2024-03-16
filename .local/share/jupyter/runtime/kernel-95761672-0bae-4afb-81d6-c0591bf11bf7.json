@@ -1,0 +1,13 @@
+{
+  "shell_port": 53345,
+  "iopub_port": 37287,
+  "stdin_port": 55451,
+  "control_port": 35681,
+  "hb_port": 41145,
+  "ip": "0.0.0.0",
+  "key": "c86f7984-e4d62439f89e6f7b66688526",
+  "transport": "tcp",
+  "signature_scheme": "hmac-sha256",
+  "kernel_name": "base",
+  "jupyter_session": "/home/jupyter/CloudFunction.ipynb"
+}

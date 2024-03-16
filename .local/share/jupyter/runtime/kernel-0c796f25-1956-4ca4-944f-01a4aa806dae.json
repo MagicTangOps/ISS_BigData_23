@@ -1,0 +1,13 @@
+{
+  "shell_port": 41717,
+  "iopub_port": 59555,
+  "stdin_port": 35685,
+  "control_port": 36741,
+  "hb_port": 41671,
+  "ip": "0.0.0.0",
+  "key": "98892954-f3b71f8c890cf78cf85522d2",
+  "transport": "tcp",
+  "signature_scheme": "hmac-sha256",
+  "kernel_name": "base",
+  "jupyter_session": "/home/jupyter/BigML_Sandbox.ipynb"
+}

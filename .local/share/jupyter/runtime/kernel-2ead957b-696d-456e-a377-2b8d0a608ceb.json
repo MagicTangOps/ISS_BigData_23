@@ -1,0 +1,13 @@
+{
+  "shell_port": 40345,
+  "iopub_port": 38815,
+  "stdin_port": 49001,
+  "control_port": 48679,
+  "hb_port": 60971,
+  "ip": "0.0.0.0",
+  "key": "c4691e9a-5fc449a5e2f46d9856373e9f",
+  "transport": "tcp",
+  "signature_scheme": "hmac-sha256",
+  "kernel_name": "xgboost-1-7",
+  "jupyter_session": "/home/jupyter/tutorials/vertex_samples/official/pipelines/get_started_with_machine_management.ipynb"
+}

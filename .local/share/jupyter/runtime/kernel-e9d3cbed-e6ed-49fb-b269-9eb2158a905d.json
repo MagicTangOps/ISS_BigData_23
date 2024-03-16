@@ -1,0 +1,13 @@
+{
+  "shell_port": 36349,
+  "iopub_port": 54061,
+  "stdin_port": 40023,
+  "control_port": 56519,
+  "hb_port": 39811,
+  "ip": "0.0.0.0",
+  "key": "b91ed4a1-8f271a6bc6d2892ee50f5425",
+  "transport": "tcp",
+  "signature_scheme": "hmac-sha256",
+  "kernel_name": "xgboost-1-7",
+  "jupyter_session": "/home/jupyter/tutorials/vertex_samples/official/datasets/get_started_bq_datasets.ipynb"
+}

@@ -1,0 +1,13 @@
+{
+  "shell_port": 36107,
+  "iopub_port": 53365,
+  "stdin_port": 52953,
+  "control_port": 41755,
+  "hb_port": 44157,
+  "ip": "0.0.0.0",
+  "key": "404210b3-bdf6964e54c8302c9b43f598",
+  "transport": "tcp",
+  "signature_scheme": "hmac-sha256",
+  "kernel_name": "xgboost-1-7",
+  "jupyter_session": "/home/jupyter/tutorials/vertex_samples/official/pipelines/custom_model_training_and_batch_prediction.ipynb"
+}
