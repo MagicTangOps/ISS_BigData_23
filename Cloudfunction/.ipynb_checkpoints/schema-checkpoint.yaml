@@ -1,0 +1,62 @@
+- name: interactions
+  size: large
+  format: NEWLINE_DELIMITED_JSON
+  columns: []
+  schema: 
+    - name: "user_id"
+      type: "INTEGER"
+      mode: "NULLABLE"
+    - name: "recipe_id"
+      type: "INTEGER"
+      mode: "NULLABLE"
+    - name: "date"
+      type: "DATE"
+      mode: "NULLABLE"
+    - name: "rating"
+      type: "INTEGER"
+      mode: "NULLABLE"
+    - name: "review"
+      type: "STRING"
+      mode: "NULLABLE"
+    
+
+
+- name: table_1
+  size: large
+  format: NEWLINE_DELIMITED_JSON
+  columns: []
+  schema: 
+    - name: "id"
+      type: "INT64"
+      mode: "NULLABLE"
+    - name: "first_name"
+      type: "STRING"
+      mode: "NULLABLE"
+    - name: "last_name"
+      type: "STRING"
+      mode: "NULLABLE"
+    - name: "dob"
+      type: "DATE"
+      mode: "NULLABLE"
+    - name: "addresses"
+      type: "RECORD"
+      mode: "REPEATED"
+      fields:
+        - name: "status"
+          type: "STRING"
+          mode: "NULLABLE"
+        - name: "address"
+          type: "STRING"
+          mode: "NULLABLE"
+        - name: "city"
+          type: "STRING"
+          mode: "NULLABLE"
+        - name: "state"
+          type: "STRING"
+          mode: "NULLABLE"
+        - name: "zip"
+          type: "INT64"
+          mode: "NULLABLE"
+        - name: "numberOfYears"
+          type: "INT64"
+          mode: "NULLABLE"
