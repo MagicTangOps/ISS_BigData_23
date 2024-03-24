@@ -5,7 +5,11 @@ components:
     executorLabel: exec-get-data
     outputDefinitions:
       artifacts:
-        dataset:
+        dataset1:
+          artifactType:
+            schemaTitle: system.Dataset
+            schemaVersion: 0.0.1
+        dataset2:
           artifactType:
             schemaTitle: system.Dataset
             schemaVersion: 0.0.1
@@ -39,17 +43,28 @@ deploymentSpec:
 
           '
         - "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import\
-          \ *\n\ndef get_data(\n    # project_id: Input[str],\n    dataset: Output[Dataset],\n\
-          ):\n    # import numpy as np\n    # import pandas as pd\n    from google.cloud\
-          \ import bigquery\n\n    # print(\"Project ID >>>>>>\" + project_id)\n\n\
-          \    # Initialize BigQuery client\n    client = bigquery.Client(project='brave-watch-414204')\n\
-          \n    sql_query = \"\"\"\n    SELECT user_id, recipe_id, rating \n    FROM\
-          \ `brave-watch-414204.RecipeQuery.interactions`\n    \"\"\"\n\n    # Execute\
-          \ the query job\n    query_job = client.query(sql_query)\n\n    # Convert\
-          \ the query resutlt to dataframe\n    data = query_job.to_dataframe()\n\n\
-          \    # Should we do this? Or we should just do everything within one component\n\
-          \    data.to_csv(dataset.path, header=True)  \n    print(\"Dataset path\
-          \ >>>>>>\" + dataset.path)\n\n"
+          \ *\n\ndef get_data(\n    # project_id: Input[str],\n    dataset1: Output[Dataset],\n\
+          \    dataset2: Output[Dataset]\n):\n    # import numpy as np\n    # import\
+          \ pandas as pd\n    from google.cloud import bigquery\n\n    # print(\"\
+          Project ID >>>>>>\" + project_id)\n\n    # Initialize BigQuery client\n\
+          \    client = bigquery.Client(project='brave-watch-414204')\n\n    sql_query\
+          \ = \"\"\"\n    SELECT user_id, recipe_id, rating \n    FROM `brave-watch-414204.RecipeQuery.interactions`\n\
+          \    \"\"\"\n\n    # Execute the query job\n    query_job = client.query(sql_query)\n\
+          \n    # Convert the query resutlt to dataframe\n    data = query_job.to_dataframe()\n\
+          \n    # FH's additional code\n    # Calculate the number of unique items\
+          \ rated by each user\n    user_item_counts = data.groupby('user_id')['recipe_id'].nunique()\n\
+          \    # Calculate the threshold for minimum number of ratings\n    threshold\
+          \ = 0.005 * data['recipe_id'].nunique()\n    # Filter out users who have\
+          \ rated at least 0.5% of the unique items\n    active_users = user_item_counts[user_item_counts\
+          \ >= threshold].index\n    # Split the data into two dataframes based on\
+          \ active users\n    data_active = data[data['user_id'].isin(active_users)]\
+          \ # users here go to CF training component\n    data_inactive = data[~data['user_id'].isin(active_users)]\
+          \ # users here go to content-based training component\n\n    # Save dataframes\
+          \ to datasets\n    data_active.to_csv(dataset1.path, index=False)\n    data_inactive.to_csv(dataset2.path,\
+          \ index=False)\n\n    # Should we do this? Or we should just do everything\
+          \ within one component\n    # data.to_csv(dataset.path, header=True)  \n\
+          \    print(\"Dataset path >>>>>>\" + dataset1.path)\n    print(\"Dataset\
+          \ path >>>>>>\" + dataset2.path)\n\n"
         image: python:3.9
 pipelineInfo:
   name: training-pipeline
