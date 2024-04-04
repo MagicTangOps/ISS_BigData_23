@@ -1,0 +1,82 @@
+# PIPELINE DEFINITION
+# Name: training-pipeline
+components:
+  comp-get-data:
+    executorLabel: exec-get-data
+    outputDefinitions:
+      artifacts:
+        dataset1:
+          artifactType:
+            schemaTitle: system.Dataset
+            schemaVersion: 0.0.1
+        dataset2:
+          artifactType:
+            schemaTitle: system.Dataset
+            schemaVersion: 0.0.1
+defaultPipelineRoot: gs://brave-watch-414204training_pipeline
+deploymentSpec:
+  executors:
+    exec-get-data:
+      container:
+        args:
+        - --executor_input
+        - '{{$}}'
+        - --function_to_execute
+        - get_data
+        command:
+        - sh
+        - -c
+        - "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip ||\
+          \ python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1\
+          \ python3 -m pip install --quiet --no-warn-script-location 'kfp==2.5.0'\
+          \ '--no-deps' 'typing-extensions>=3.7.4,<5; python_version<\"3.9\"'  &&\
+          \  python3 -m pip install --quiet --no-warn-script-location 'numpy' 'pandas'\
+          \ 'fsspec' 'db-dtypes' 'google-cloud-bigquery' && \"$0\" \"$@\"\n"
+        - sh
+        - -ec
+        - 'program_path=$(mktemp -d)
+
+
+          printf "%s" "$0" > "$program_path/ephemeral_component.py"
+
+          _KFP_RUNTIME=true python3 -m kfp.dsl.executor_main                         --component_module_path                         "$program_path/ephemeral_component.py"                         "$@"
+
+          '
+        - "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import\
+          \ *\n\ndef get_data(\n    # project_id: Input[str],\n    dataset1: Output[Dataset],\n\
+          \    dataset2: Output[Dataset]\n):\n    # import numpy as np\n    # import\
+          \ pandas as pd\n    from google.cloud import bigquery\n\n    # print(\"\
+          Project ID >>>>>>\" + project_id)\n\n    # Initialize BigQuery client\n\
+          \    client = bigquery.Client(project='brave-watch-414204')\n\n    sql_query\
+          \ = \"\"\"\n    SELECT user_id, recipe_id, rating \n    FROM `brave-watch-414204.RecipeQuery.interactions`\n\
+          \    \"\"\"\n\n    # Execute the query job\n    query_job = client.query(sql_query)\n\
+          \n    # Convert the query resutlt to dataframe\n    data = query_job.to_dataframe()\n\
+          \n    # FH's additional code\n    # Calculate the number of unique items\
+          \ rated by each user\n    user_item_counts = data.groupby('user_id')['recipe_id'].nunique()\n\
+          \    # Calculate the threshold for minimum number of ratings\n    threshold\
+          \ = 0.005 * data['recipe_id'].nunique()\n    # Filter out users who have\
+          \ rated at least 0.5% of the unique items\n    active_users = user_item_counts[user_item_counts\
+          \ >= threshold].index\n    # Split the data into two dataframes based on\
+          \ active users\n    data_active = data[data['user_id'].isin(active_users)]\
+          \ # users here go to CF training component\n    data_inactive = data[~data['user_id'].isin(active_users)]\
+          \ # users here go to content-based training component\n\n    # Save dataframes\
+          \ to datasets\n    data_active.to_csv(dataset1.path, index=False)\n    data_inactive.to_csv(dataset2.path,\
+          \ index=False)\n\n    # Should we do this? Or we should just do everything\
+          \ within one component\n    # data.to_csv(dataset.path, header=True)  \n\
+          \    print(\"Dataset path >>>>>>\" + dataset1.path)\n    print(\"Dataset\
+          \ path >>>>>>\" + dataset2.path)\n\n"
+        image: python:3.9
+pipelineInfo:
+  name: training-pipeline
+root:
+  dag:
+    tasks:
+      get-data:
+        cachingOptions:
+          enableCache: true
+        componentRef:
+          name: comp-get-data
+        taskInfo:
+          name: get-data
+schemaVersion: 2.1.0
+sdkVersion: kfp-2.5.0
