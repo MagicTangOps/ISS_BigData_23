@@ -21,7 +21,7 @@ components:
       parameters:
         training_status:
           parameterType: BOOLEAN
-defaultPipelineRoot: gs://brave-watch-414204training_pipeline
+defaultPipelineRoot: gs://recipe-recommendation-2024/training_pipeline
 deploymentSpec:
   executors:
     exec-get-data:
@@ -52,17 +52,18 @@ deploymentSpec:
           '
         - "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import\
           \ *\n\ndef get_data(\n    # project_id: Input[str],\n    dataset: Output[Dataset],\n\
-          ):\n    # import numpy as np\n    # import pandas as pd\n    from google.cloud\
-          \ import bigquery\n\n    # print(\"Project ID >>>>>>\" + project_id)\n\n\
-          \    # Initialize BigQuery client\n    client = bigquery.Client(project='brave-watch-414204')\n\
-          \n    sql_query = \"\"\"\n    SELECT user_id, recipe_id, rating \n    FROM\
-          \ `brave-watch-414204.RecipeQuery.interactions`\n    \"\"\"\n\n    # Execute\
-          \ the query job\n    query_job = client.query(sql_query)\n\n    # Convert\
-          \ the query resutlt to dataframe\n    data = query_job.to_dataframe()\n\n\
-          \    # write the model out to the trained_model\n    # with open(trained_model,\
-          \ \"wb\") as f:\n    #     pickle.dump(model_svm, f)\n\n    data.to_csv(dataset.path,\
-          \ header=True, index = False)\n    # print(\"Dataset path >>>>>>\" + dataset.path)\n\
-          \n"
+          ):\n    from google.cloud import bigquery\n\n    # print(\"Project ID >>>>>>\"\
+          \ + project_id)\n\n    # Initialize BigQuery client\n    client = bigquery.Client(project='recipe-recommendation-2024')\n\
+          \n    sql_query = f\"\"\"\n    SELECT user_id, recipe_id, rating \n    FROM\
+          \ `recipe-recommendation-2024.RecipeQuery.interactions`\n    \"\"\"\n\n\
+          \    # Execute the query job\n    query_job = client.query(sql_query)\n\n\
+          \    # Convert the query resutlt to dataframe\n    data = query_job.to_dataframe()\n\
+          \n    # filter out target person\n    # filtered_df = data.groupby('user_id').filter(lambda\
+          \ x: len(x) > 20 and len(x) < 150)\n\n    # write the model out to the trained_model\n\
+          \    # with open(trained_model, \"wb\") as f:\n    #     pickle.dump(model_svm,\
+          \ f)\n\n    data.to_csv(dataset.path, header=True, index = False)\n    #\
+          \ filtered_df.to_csv(dataset.path, header=True, index = False)\n    # print(\"\
+          Dataset path >>>>>>\" + dataset.path)\n\n"
         image: python:3.9
     exec-training-model:
       container:
@@ -112,10 +113,10 @@ deploymentSpec:
           \ 'pearson', 'user_based': True})\n    # algo = KNNBasic(k=40, sim_options={'name':\
           \ 'pearson_baseline', 'user_based': True})\n    algo.fit(trainset)\n\n \
           \   # Dump model pickle file\n    model_bytes = pickle.dumps(algo)\n\n \
-          \   # Upload the model pickle file to GCS\n    bucket_name = \"brave-watch-414204\"\
-          \n    pickle_file_name = \"svd_model.pkl\"\n    folder_path = \"Model\"\n\
-          \    destination_blob_name = f'{folder_path}/{pickle_file_name}'\n\n   \
-          \ storage_client = storage.Client()\n    bucket = storage_client.bucket(bucket_name)\n\
+          \   # Upload the model pickle file to GCS\n    bucket_name = 'recipe-recommendation-2024'\n\
+          \    pickle_file_name = \"svd_model.pkl\"\n    folder_path = \"model_rcs\"\
+          \n    destination_blob_name = f'{folder_path}/{pickle_file_name}'\n\n  \
+          \  storage_client = storage.Client()\n    bucket = storage_client.bucket(bucket_name)\n\
           \    blob = bucket.blob(destination_blob_name)\n    blob.upload_from_string(model_bytes)\n\
           \    training_status = True\n\n"
         image: python:3.9
