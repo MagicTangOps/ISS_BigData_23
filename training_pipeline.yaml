@@ -21,7 +21,7 @@ components:
       parameters:
         training_status:
           parameterType: BOOLEAN
-defaultPipelineRoot: gs://recipetestingfh-419016training_pipeline
+defaultPipelineRoot: gs://brave-watch-414204training_pipeline
 deploymentSpec:
   executors:
     exec-get-data:
