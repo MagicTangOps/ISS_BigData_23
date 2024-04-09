@@ -21,7 +21,7 @@ components:
       parameters:
         training_status:
           parameterType: BOOLEAN
-defaultPipelineRoot: gs://brave-watch-414204training_pipeline
+defaultPipelineRoot: gs://recipetestingfh-419016training_pipeline
 deploymentSpec:
   executors:
     exec-get-data:
@@ -52,17 +52,18 @@ deploymentSpec:
           '
         - "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import\
           \ *\n\ndef get_data(\n    # project_id: Input[str],\n    dataset: Output[Dataset],\n\
-          ):\n    # import numpy as np\n    # import pandas as pd\n    from google.cloud\
-          \ import bigquery\n\n    # print(\"Project ID >>>>>>\" + project_id)\n\n\
-          \    # Initialize BigQuery client\n    client = bigquery.Client(project='brave-watch-414204')\n\
+          ):\n    from google.cloud import bigquery\n\n    # print(\"Project ID >>>>>>\"\
+          \ + project_id)\n\n    # Initialize BigQuery client\n    client = bigquery.Client(project='brave-watch-414204')\n\
           \n    sql_query = \"\"\"\n    SELECT user_id, recipe_id, rating \n    FROM\
           \ `brave-watch-414204.RecipeQuery.interactions`\n    \"\"\"\n\n    # Execute\
           \ the query job\n    query_job = client.query(sql_query)\n\n    # Convert\
           \ the query resutlt to dataframe\n    data = query_job.to_dataframe()\n\n\
-          \    # write the model out to the trained_model\n    # with open(trained_model,\
-          \ \"wb\") as f:\n    #     pickle.dump(model_svm, f)\n\n    data.to_csv(dataset.path,\
-          \ header=True, index = False)\n    # print(\"Dataset path >>>>>>\" + dataset.path)\n\
-          \n"
+          \    # filter out target person\n    # filtered_df = data.groupby('user_id').filter(lambda\
+          \ x: len(x) > 20 and len(x) < 150)\n\n    # write the model out to the trained_model\n\
+          \    # with open(trained_model, \"wb\") as f:\n    #     pickle.dump(model_svm,\
+          \ f)\n\n    data.to_csv(dataset.path, header=True, index = False)\n    #\
+          \ filtered_df.to_csv(dataset.path, header=True, index = False)\n    # print(\"\
+          Dataset path >>>>>>\" + dataset.path)\n\n"
         image: python:3.9
     exec-training-model:
       container:
@@ -100,7 +101,7 @@ deploymentSpec:
           \    from surprise import accuracy\n    from surprise import Reader\n  \
           \  from surprise.model_selection import train_test_split\n    from surprise.model_selection\
           \ import cross_validate\n\n\n    print(\"Dataset path >>>>>>\" + dataset.path)\n\
-          \    ratings_df = pd.read_csv(dataset.path)\n\n    reader = Reader(rating_scale=(1,5))\n\
+          \    ratings_df = pd.read_csv(dataset.path)\n\n    reader = Reader(rating_scale=(0,6))\n\
           \    data = Dataset.load_from_df(ratings_df, reader)  # assumes dataframe\
           \ contains: user, item, ratings (in this order)\n\n    # training\n    #\
           \ trainset, testset  = train_test_split(data, test_size=0.1)  # select 10%\
