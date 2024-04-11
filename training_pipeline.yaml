@@ -66,8 +66,12 @@ deploymentSpec:
           \ `brave-watch-414204.RecipeQuery.interactions`\n    \"\"\"\n\n    # Execute\
           \ the query job\n    query_job = client.query(sql_query)\n\n    # Convert\
           \ the query resutlt to dataframe\n    data = query_job.to_dataframe()\n\n\
+<<<<<<< HEAD
           \    # filter out target person\n    filtered_df = data.groupby('user_id').filter(lambda\
 >>>>>>> 1846eb121c48e1711006e31aaf3b7ac44b29e19c
+=======
+          \    # filter out target person\n    # filtered_df = data.groupby('user_id').filter(lambda\
+>>>>>>> 33590185e8880b6009e7bd783445d6729b764746
           \ x: len(x) > 20 and len(x) < 150)\n\n    # write the model out to the trained_model\n\
           \    # with open(trained_model, \"wb\") as f:\n    #     pickle.dump(model_svm,\
           \ f)\n\n    data.to_csv(dataset.path, header=True, index = False)\n    #\
