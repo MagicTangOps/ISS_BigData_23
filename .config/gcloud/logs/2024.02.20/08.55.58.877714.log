@@ -1,8 +1,0 @@
-2024-02-20 08:55:58,880 DEBUG    root            Loaded Command Group: ['gcloud', 'config']
-2024-02-20 08:55:58,882 DEBUG    root            Loaded Command Group: ['gcloud', 'config', 'config_helper']
-2024-02-20 08:55:58,885 DEBUG    root            Running [gcloud.config.config-helper] with arguments: [--format: "value(configuration.properties.api_endpoint_overrides.datacatalog)"]
-2024-02-20 08:55:58,902 DEBUG    root            Chosen display Format:default value(configuration.properties.api_endpoint_overrides.datacatalog)
-2024-02-20 08:55:58,903 INFO     root            Display format: "default value(configuration.properties.api_endpoint_overrides.datacatalog)"
-2024-02-20 08:55:58,904 INFO     ___FILE_ONLY___ 
-
-2024-02-20 08:55:58,904 DEBUG    root            SDK update checks are disabled.

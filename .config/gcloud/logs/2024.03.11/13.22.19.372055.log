@@ -1,8 +1,0 @@
-2024-03-11 13:22:19,374 DEBUG    root            Loaded Command Group: ['gcloud', 'config']
-2024-03-11 13:22:19,376 DEBUG    root            Loaded Command Group: ['gcloud', 'config', 'config_helper']
-2024-03-11 13:22:19,380 DEBUG    root            Running [gcloud.config.config-helper] with arguments: [--format: "value(configuration.properties.api_endpoint_overrides.metastore)"]
-2024-03-11 13:22:19,395 DEBUG    root            Chosen display Format:default value(configuration.properties.api_endpoint_overrides.metastore)
-2024-03-11 13:22:19,395 INFO     root            Display format: "default value(configuration.properties.api_endpoint_overrides.metastore)"
-2024-03-11 13:22:19,396 INFO     ___FILE_ONLY___ 
-
-2024-03-11 13:22:19,397 DEBUG    root            SDK update checks are disabled.

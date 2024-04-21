@@ -1,8 +1,0 @@
-2024-02-19 10:10:52,787 DEBUG    root            Loaded Command Group: ['gcloud', 'config']
-2024-02-19 10:10:52,793 DEBUG    root            Loaded Command Group: ['gcloud', 'config', 'get_value']
-2024-02-19 10:10:52,795 DEBUG    root            Running [gcloud.config.get-value] with arguments: [SECTION/PROPERTY: "account"]
-2024-02-19 10:10:52,798 DEBUG    root            Chosen display Format:value(.)
-2024-02-19 10:10:52,799 INFO     root            Display format: "value(.)"
-2024-02-19 10:10:52,799 INFO     ___FILE_ONLY___ 564706877122-compute@developer.gserviceaccount.com
-
-2024-02-19 10:10:52,800 DEBUG    root            SDK update checks are disabled.

@@ -1,3 +1,0 @@
-2024-03-05 11:47:08,942 DEBUG    root            Loaded Command Group: ['gcloud', 'config']
-2024-03-05 11:47:08,945 DEBUG    root            Loaded Command Group: ['gcloud', 'config', 'config_helper']
-2024-03-05 11:47:08,948 DEBUG    root            Running [gcloud.config.config-helper] with arguments: [--format: "value(credential.access_token)"]

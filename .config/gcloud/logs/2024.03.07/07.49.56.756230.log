@@ -1,6 +1,0 @@
-2024-03-07 07:49:56,758 DEBUG    root            Loaded Command Group: ['gcloud', 'config']
-2024-03-07 07:49:57,448 DEBUG    root            Loaded Command Group: ['gcloud', 'config', 'set']
-2024-03-07 07:49:57,451 DEBUG    root            Running [gcloud.config.set] with arguments: [SECTION/PROPERTY: "project", VALUE: "[your-project-id]"]
-2024-03-07 07:49:57,481 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudresourcemanager.googleapis.com:443
-2024-03-07 07:49:57,706 DEBUG    urllib3.connectionpool https://cloudresourcemanager.googleapis.com:443 "GET /v1/projects/%5Byour-project-id%5D?alt=json HTTP/1.1" 400 None
-2024-03-07 07:49:57,708 WARNING  root            You do not appear to have access to project [[your-project-id]] or it does not exist.
