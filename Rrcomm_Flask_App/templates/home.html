@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative; /* Add this to position the logo */
+        }
+
+        .containerImage {
+            max-width: 500px;
+            margin: 100px auto;
+            padding: 20px;
+<!--            border-radius: 10px;-->
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative; /* Add this to position the logo */
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: black; /* Change button color to black */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #333; /* Darken button color on hover */
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        .logo {
+            position: absolute;
+            top: -30px; /* Adjust top position as needed */
+            left: 50%;
+            transform: translateX(-50%);
+<!--            max-width: 150px; /* Limit logo width */-->
+<!--            max-height: 100px; /* Limit logo height */-->
+            z-index: 1; /* Ensure logo stays above content */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Login</h1>
+        <form action="{{ url_for('recommend') }}" method="post">
+            <label for="userId">Select User:</label>
+            <select id="userId" name="userId" required>
+                <option value="">Select User</option>
+                <option value="56680">User 1</option>
+                <option value="713375">User 2</option>
+                <!-- Add more options as needed -->
+            </select>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>
